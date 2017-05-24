@@ -10,4 +10,5 @@ public interface RelationshipRepositoryImpl extends JpaRepository<Relationship,L
 
     List<Relationship> findRelationshipsByUserOne(String userOne);
     List<Relationship> findRelationshipsByUserTwo(String userTwo);
+    Relationship findRelationshipByUserOneAndUserTwo(String userOne,String userTwo);
 }

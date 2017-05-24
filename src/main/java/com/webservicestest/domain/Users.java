@@ -13,13 +13,10 @@ public class Users  implements Serializable{
 
     public static final long serialVersionUID =1;
 
-   /* @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Relationship> relationship;*/
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
+    @JsonIgnore
     private long user_id;
 
     @Column(name = "username", unique = true)
@@ -30,11 +27,9 @@ public class Users  implements Serializable{
     }
 
     @Column(name = "password")
-    @JsonIgnore
     private String password;
 
     @Column(name = "email", unique = true)
-    @JsonIgnore
     private String email;
 
     protected Users() {
@@ -46,13 +41,6 @@ public class Users  implements Serializable{
         this.email = email;
     }
 
-   /* public List<Relationship> getRelationship() {
-        return relationship;
-    }
-
-    public void setRelationship(List<Relationship> relationship) {
-        this.relationship = relationship;
-    }*/
 
     public String getUsername() {
         return username;

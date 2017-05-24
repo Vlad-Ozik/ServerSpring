@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Web Admin Room</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/js/getrequest.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {height: 1500px}
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <div id="getResultDiv">
+                <h4>All Users</h4>
+                <ul class="nav nav-pills nav-stacked ulUsers">
+                    <li id='0' class="navli" >
+                        <h4 class="list-group-item"><a href="#"> Users</a></h4>
+                    </li>
+                </ul>
+                <br/>
+            </div>
+            <div id="getdiv">
+                <button id="getBtn" >Get All Customers</button>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div id="getResM">
+                <h4><small>Messages</small></h4>
+                <ul class="nav nav-pills nav-stacked ulMess"></ul>
+            </div>
+            <div id="getMess">
+                <button id="getMessBt" >Get All Messages</button>
+            </div>
+        </div>
+
+        <div class="d-inline-block bg-warning">
+                <ul class="list-group">
+                </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

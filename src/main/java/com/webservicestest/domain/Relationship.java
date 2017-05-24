@@ -16,8 +16,13 @@ public class Relationship implements Serializable {
     @JoinColumn(name = "user_one", insertable = false, updatable = false, columnDefinition = "username")
     private Users user;*/
 
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
 
     @Column(name = "user_one",unique = true)

@@ -7,6 +7,6 @@ public interface UsersRepositoryImpl extends JpaRepository<Users,Long> {
 
     //List<Users> findByUsernameAndPassword(String username,String password);
     Users findUserByUsernameAndPassword(String username, String password);
-    Users findUserByUsername(String username);
+
 }
 
