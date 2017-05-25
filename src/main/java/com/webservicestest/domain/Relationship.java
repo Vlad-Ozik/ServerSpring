@@ -11,10 +11,7 @@ import java.io.Serializable;
 public class Relationship implements Serializable {
 
     public static final long serialVersionUID =1;
-/*
-    @ManyToOne
-    @JoinColumn(name = "user_one", insertable = false, updatable = false, columnDefinition = "username")
-    private Users user;*/
+
 
     public void setStatus(int status) {
         this.status = status;
