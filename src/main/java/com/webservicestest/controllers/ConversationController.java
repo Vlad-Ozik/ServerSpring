@@ -24,8 +24,7 @@ public class ConversationController {
     @RequestMapping(value = "findConversation/{userOne}&{userTwo}")
     public List<Conversation> findMessagesForUserOneAndUserTwo(@PathVariable String userOne,
                                                                @PathVariable String userTwo){
-        List<Conversation> result = joinListst(conversationRepository.findMessagesByUserOneAndUserTwoAndStatus(userOne,userTwo,0),
-                                                conversationRepository.findMessagesByUserOneAndUserTwoAndStatus(userTwo,userOne,0));
+        List<Conversation> result =  conversationRepository.findMessagesByUserOneAndUserTwoAndStatus(userTwo,userOne,0);
         Conversation conversation;
         for(int i=0;i<result.size();i++){
             conversation = result.get(i);
