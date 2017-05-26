@@ -28,7 +28,7 @@ public class ConversationController {
         Conversation conversation;
         for(int i=0;i<result.size();i++){
             conversation = result.get(i);
-            conversation.setStatus(1);
+           // conversation.setStatus(1);
             conversationRepository.save(conversation);
         }
         result.sort(Comparator.comparingInt(Conversation::getC_id));
