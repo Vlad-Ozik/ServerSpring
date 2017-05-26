@@ -58,7 +58,7 @@ public class RelationshipController {
     public void acceptRequest(@PathVariable String userOne, @PathVariable String userTwo){
 
             Relationship r = relationshipRepository.findRelationshipByUserOneAndUserTwo(userOne, userTwo);
-            r.setStatus(0);
+            r.setStatus(1);
             relationshipRepository.save(r);
     }
 

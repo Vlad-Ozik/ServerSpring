@@ -15,7 +15,7 @@ $( document ).ready(function() {
     function ajaxGetU(){
         $.ajax({
             type : "GET",
-            url : "https://serdfghjkmnbgf.herokuapp.com/allUsers",
+            url : "https://ozik.herokuapp.com/allUsers",
             success: function(result){
                     $('#getResultDiv .ulUsers li').remove();
                     $.each(result, function(i, customer){
@@ -39,7 +39,7 @@ $( document ).ready(function() {
     function ajaxGetAllM() {
         $.ajax({
                 type: "GET",
-                url: "https://serdfghjkmnbgf.herokuapp.com/getAllMessages",
+                url: "https://ozik.herokuapp.com/getAllMessages",
             success: function (result) {
                     $('#getResM .ulMess li').remove();
                     $.each(result,function(i,mess){
@@ -56,7 +56,7 @@ $( document ).ready(function() {
     function ajaxGetMesByUsername(username) {
         $.ajax({
             type: "GET",
-            url: "https://serdfghjkmnbgf.herokuapp.com/findConversationForUserOne/"+ username,
+            url: "https://ozik.herokuapp.com/findConversationForUserOne/"+ username,
             success: function (result) {
                 $('#getResM .ulMess li').remove();
                 $.each(result,function(i,mess){
