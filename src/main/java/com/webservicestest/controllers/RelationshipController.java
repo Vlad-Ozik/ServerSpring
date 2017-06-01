@@ -62,8 +62,9 @@ public class RelationshipController {
             relationshipRepository.save(r);
     }
 
-    @RequestMapping(value = "/setRequest/{userOne}&{userTwo}", method = RequestMethod.POST)
+    @RequestMapping(value = "/setRequest", method = RequestMethod.POST)
     public void setRequestRelationship(@RequestBody Relationship relationship){
+       if(relationshipRepository.findRelationshipByUserOneAndUserTwo(relationship.getUserOne(),relationship.getUserTwo()) == null)
         relationshipRepository.save(relationship);
     }
 

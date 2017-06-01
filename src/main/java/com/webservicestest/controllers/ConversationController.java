@@ -28,19 +28,24 @@ public class ConversationController {
         Conversation conversation;
         for(int i=0;i<result.size();i++){
             conversation = result.get(i);
-           // conversation.setStatus(1);
+            conversation.setStatus(1);
             conversationRepository.save(conversation);
         }
         result.sort(Comparator.comparingInt(Conversation::getC_id));
         return result;
     }
 
-    @RequestMapping(value = "findConversationForUserOne/{userOne}", method = RequestMethod.GET)
-    public List<Conversation> findConversationForOneUser(@PathVariable String userOne){
+    @RequestMapping(value = "findConversationForUserOne/{userOne}&{userTwo}&{count}", method = RequestMethod.GET)
+    public List<Conversation> findConversationForOneUser(@PathVariable String userOne,
+                                                         @PathVariable String userTwo,
+                                                         @PathVariable int count){
 
-        List<Conversation> result = joinListst(conversationRepository.findConversationByUserOne(userOne),
-                                                conversationRepository.findConversationByUserTwo(userOne));
-        result.sort(Comparator.comparingInt(Conversation::getC_id));
+        List<Conversation> result = joinListst(conversationRepository.findMessagesByUserOneAndUserTwo(userOne,userTwo),
+                                                conversationRepository.findMessagesByUserOneAndUserTwo(userTwo,userOne));
+        if(result.size()>=1){
+            result.sort(Comparator.comparingInt(Conversation::getC_id));
+            result.subList(0,count).clear();
+        }
         return result;
     }
 
