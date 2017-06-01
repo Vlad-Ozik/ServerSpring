@@ -56,7 +56,7 @@ $( document ).ready(function() {
     function ajaxGetMesByUsername(username) {
         $.ajax({
             type: "GET",
-            url: "https://ozik.herokuapp.com/findConversationForUserOne/"+ username,
+            url: "https://ozik.herokuapp.com/findConversation/"+ username,
             success: function (result) {
                 $('#getResM .ulMess li').remove();
                 $.each(result,function(i,mess){

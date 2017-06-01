@@ -21,16 +21,12 @@ public class ConversationController {
         this.conversationRepository = conversationRepository;
     }
 
-    @RequestMapping(value = "findConversation/{userOne}&{userTwo}")
-    public List<Conversation> findMessagesForUserOneAndUserTwo(@PathVariable String userOne,
-                                                               @PathVariable String userTwo){
-        List<Conversation> result =  conversationRepository.findMessagesByUserOneAndUserTwoAndStatus(userTwo,userOne,0);
-        Conversation conversation;
-        for(int i=0;i<result.size();i++){
-            conversation = result.get(i);
-            conversation.setStatus(1);
-            conversationRepository.save(conversation);
-        }
+    @RequestMapping(value = "findConversation/{userOne}")
+    public List<Conversation> findMessagesForUserOneAndUserTwo(@PathVariable String userOne){
+
+        List<Conversation> result =  joinListst(conversationRepository.findConversationByUserOne(userOne),
+                                                conversationRepository.findConversationByUserTwo(userOne));
+
         result.sort(Comparator.comparingInt(Conversation::getC_id));
         return result;
     }
