@@ -60,7 +60,7 @@ $( document ).ready(function() {
             success: function (result) {
                 $('#getResM .ulMess li').remove();
                 $.each(result,function(i,mess){
-                    var message ="UserTo:" + mess.userOne + "| UserFrom:"+mess.userTwo  + "| Message:"+mess.message + "<br\>";
+                    var message ="UserFrom:" + mess.userOne + "| UserTo:"+mess.userTwo  + "| Message:"+mess.message + "<br\>";
                     $('#getResM .ulMess').append('<li id='+(i+1)+'>' +
                         '<h4 class="list-group-item"><a href="#"> '+message+'</a></h4></li>')
                 })
